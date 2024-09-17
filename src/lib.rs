@@ -29,11 +29,6 @@
 //  ~~~~~~~~~~~~~~~~~~             ~~~~~~~
 //  const generics (stable)        generic_const_exprs
 
-// Format Arguments Capture:
-// let foo = ...;
-// println!("{foo}");
-//          ~~~~~~~ format args capture (seem to be C#)
-
 pub mod bot;
 pub mod command_ext;
 pub mod commands;
