@@ -17,11 +17,8 @@
  *
  */
 
-#![feature(format_args_capture)]
 #![feature(never_type)]
-#![feature(in_band_lifetimes)]
 #![feature(result_flattening)]
-#![feature(bool_to_option)]
 
 use anyhow::{anyhow, Context};
 use counted_array::counted_array;
