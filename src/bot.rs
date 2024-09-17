@@ -154,7 +154,7 @@ impl Quiz {
     pub fn register(&mut self, user: UserId) -> anyhow::Result<()> {
         self.participants
             .insert(user)
-            .then(|| ())
+            .then_some(())
             .ok_or_else(|| anyhow!("already registered."))
     }
 
@@ -164,7 +164,7 @@ impl Quiz {
     ) -> anyhow::Result<Either<String, (String, [CreateButton; 2])>> {
         self.participants
             .remove(&user.id)
-            .then(|| ())
+            .then_some(())
             .ok_or_else(|| anyhow!("not registered"))?;
         Ok(self
             .participants
@@ -208,7 +208,7 @@ impl Quiz {
         }
         for (query, result) in self.history.iter() {
             embed.field(
-                query.eq("").then(|| "ε").unwrap_or(query),
+                if query.eq("") { "ε" } else { query },
                 dbg!(result.clone()),
                 true,
             );
@@ -235,7 +235,7 @@ impl Quiz {
     fn validate(&self, input: &[Alphabet]) -> anyhow::Result<()> {
         let domain = Alphabet::iter().take(self.size.into()).collect_vec();
         let invalid = input.iter().filter(|c| !domain.contains(c)).collect_vec();
-        invalid.is_empty().then(|| ()).ok_or_else(|| {
+        invalid.is_empty().then_some(()).ok_or_else(|| {
             anyhow!(
                 indoc::indoc! {"
                     Domain Error: {:?} {}.

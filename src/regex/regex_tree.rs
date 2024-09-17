@@ -241,8 +241,8 @@ impl RegexAst {
         let mut accum = HashSet::new();
         let mut exprs_to_process = vec![self];
 
-        while !exprs_to_process.is_empty() {
-            let to_process = exprs_to_process.pop().unwrap();
+        while let Some(to_process) = exprs_to_process.pop() {
+            
             match to_process {
                 RegexAst::Epsilon => {}
                 RegexAst::Literal(a) => {

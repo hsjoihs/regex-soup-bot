@@ -107,7 +107,7 @@ impl Distribution<Vec<u8>> for PartitionTreeSize {
         // sort partitions with 0 and target_sum added
         let sorted_partitions = partitions.sorted().dedup().collect::<Vec<_>>();
 
-        (&sorted_partitions)
+        sorted_partitions
             .windows(2)
             .map(|w| w[1] - w[0])
             .collect()
