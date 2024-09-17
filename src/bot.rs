@@ -76,11 +76,11 @@ pub enum InspectionAcceptance {
     WrongAnswer(String),
 }
 
-impl ToString for InspectionAcceptance {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for InspectionAcceptance {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            InspectionAcceptance::Accepted(input) => format!("{input} => AC"),
-            InspectionAcceptance::WrongAnswer(input) => format!("{input} => WA"),
+            InspectionAcceptance::Accepted(input) => write!(f, "{input} => AC"),
+            InspectionAcceptance::WrongAnswer(input) => write!(f, "{input} => WA"),
         }
     }
 }
@@ -90,11 +90,11 @@ pub enum QueryMatch {
     No(String),
 }
 
-impl ToString for QueryMatch {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for QueryMatch {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            QueryMatch::Yes(input) => format!("{input} => Yes"),
-            QueryMatch::No(input) => format!("{input} => No"),
+            QueryMatch::Yes(input) => write!(f, "{} => Yes", input),
+            QueryMatch::No(input) => write!(f, "{} => No", input),
         }
     }
 }

@@ -108,9 +108,9 @@ pub enum CustomId {
     Feedback { label: String, regex: String },
 }
 
-impl ToString for CustomId {
-    fn to_string(&self) -> String {
-        serde_json::to_string(&self).expect("valid json")
+impl std::fmt::Display for CustomId {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{}", serde_json::to_string(&self).expect("valid json"))
     }
 }
 
