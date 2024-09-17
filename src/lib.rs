@@ -21,11 +21,8 @@
 #![allow(incomplete_features)]
 #![feature(
     adt_const_params,
-    const_generics_defaults,
     const_trait_impl,
-    format_args_capture,
     generic_const_exprs,
-    in_band_lifetimes
 )]
 // Generic Const-Expression:
 // <const N: {Integer}>: where Foo<{N + 1}>
