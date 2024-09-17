@@ -242,7 +242,6 @@ impl RegexAst {
         let mut exprs_to_process = vec![self];
 
         while let Some(to_process) = exprs_to_process.pop() {
-            
             match to_process {
                 RegexAst::Epsilon => {}
                 RegexAst::Literal(a) => {

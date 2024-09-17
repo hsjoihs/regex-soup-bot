@@ -19,11 +19,7 @@
 
 // Yeah!
 #![allow(incomplete_features)]
-#![feature(
-    adt_const_params,
-    const_trait_impl,
-    generic_const_exprs,
-)]
+#![feature(adt_const_params, const_trait_impl, generic_const_exprs)]
 // Generic Const-Expression:
 // <const N: {Integer}>: where Foo<{N + 1}>
 //  ~~~~~~~~~~~~~~~~~~             ~~~~~~~
